@@ -7,13 +7,13 @@ The habit tracker app is a program that aims to help their users with the creati
 
 First, the repository has to be cloned
 ```bash
-git clone https://github.com/AgustinCarvajal0/Habit-Tracking-App
+git clone https://github.com/AgustinCarvajal0/Habit-Tracking-Application
 ```
 
 next, the directory has to be opened
 
 ```bash
-cd Habit-Tracking-App
+cd Habit-Tracking-Application
 ```
 
 finally, the program can be run as intended executing
