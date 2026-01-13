@@ -1,0 +1,90 @@
+[
+    {
+        "name": "Bouldering",
+        "timespan": "5",
+        "periodicity": false,
+        "details": "Going every weekend to do some rock climbing with friends",
+        "check": true,
+        "streak": 6,
+        "last_check": "2026-01-05",
+        "history": [
+            "2025-12-03",
+            "2025-12-10",
+            "2025-12-17",
+            "2025-12-23",
+            "2026-01-02",
+            "2026-01-05"
+        ]
+    },
+    {
+        "name": "Daily Crossword",
+        "timespan": "31",
+        "periodicity": true,
+        "details": "complete a crossword from my local newspaper",
+        "check": true,
+        "streak": 5,
+        "last_check": "2026-01-06",
+        "history": [
+            "2025-12-06",
+            "2025-12-07",
+            "2025-12-08",
+            "2025-12-10",
+            "2025-12-11",
+            "2025-12-12",
+            "2025-12-13",
+            "2025-12-14",
+            "2025-12-15",
+            "2025-12-16",
+            "2025-12-17",
+            "2025-12-18",
+            "2025-12-19",
+            "2025-12-20",
+            "2025-12-22",
+            "2025-12-23",
+            "2025-12-24",
+            "2025-12-25",
+            "2025-12-26",
+            "2025-12-27",
+            "2025-12-28",
+            "2025-12-29",
+            "2025-12-30",
+            "2025-12-31",
+            "2026-01-02",
+            "2026-01-03",
+            "2026-01-04",
+            "2026-01-05",
+            "2026-01-06"
+        ]
+    },
+    {
+        "name": "Running",
+        "timespan": 8,
+        "periodicity": false,
+        "details": "Run a 5k once a week in the mornings",
+        "check": true,
+        "streak": 5,
+        "last_check": "2026-01-05",
+        "history": [
+            "2025-12-11",
+            "2025-12-18",
+            "2025-12-25",
+            "2026-01-02",
+            "2026-01-05"
+        ]
+    },
+    {
+        "name": "Changing Bedsheets",
+        "timespan": 8,
+        "periodicity": false,
+        "details": "Change and wash my bedsheets",
+        "check": true,
+        "streak": 3,
+        "last_check": "2026-01-05",
+        "history": [
+            "2025-12-25",
+            "2026-01-01",
+            "2026-01-02",
+            "2026-01-05"
+        ]
+    }
+]
