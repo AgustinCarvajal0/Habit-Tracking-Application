@@ -95,14 +95,13 @@ def delete_habit():
 
         for linea in opened_database:
 
-            if str(deleted) not in str(linea):
+            if str(deleted).lower() != str(linea.name).lower():
                 habits_to_keep.append(linea)
 
-            if str(deleted) in str(linea):
+            if str(deleted).lower() == str(linea.name).lower():
                 print("Habit successfully deleted \n")
-
     save_json(habits_to_keep)
-    # json.dump([t.to_dict() for t in habits_to_keep], archivo, indent=4, ensure_ascii=False)
+
 
 
 def check_a_habit():

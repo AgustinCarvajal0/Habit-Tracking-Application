@@ -20,7 +20,19 @@ def menu():
         menu()
     if value_input == str(3):
         Habit_tracker_app.delete_habit()
-        menu()
+
+        print("What do you want to do now?")
+        print("1. Menu")
+        print("2. Delete another habit")
+        print("3. Close \n")
+        what_next = input("Write the number of the action ")
+        if what_next == str("1"):
+            menu()
+        if what_next == str("2"):
+            Habit_tracker_app.delete_habit()
+        if what_next == str("3"):
+            print("\n Goodbye!")
+            pass
     if value_input == str(4):
         print(Habit_tracker_app.request_overall_analysis())
         menu()
