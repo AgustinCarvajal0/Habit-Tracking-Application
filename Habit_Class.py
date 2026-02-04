@@ -14,7 +14,7 @@ class Habit:
         self.history = history
 
     def __str__(self) -> str:
-        return f"{self.name}; {self.timespan}; {self.periodicity}; {self.details}; {self.checked}; {self.streak}; {self.last_check} ; {self.history}"
+        return f"{self.name}; {self.timespan}; {self.periodicity}; {self.details}; {self.checked}; {self.streak}; {self.last_check}; {self.history}"
 
 
     def change_timespan(self, new_timespan):
@@ -38,6 +38,10 @@ class Habit:
 
     def check_habit(self):
         today = date.today().isoformat()
+        if self.history == None:
+            self.history.append(today)
+            self.last_check = today
+            
         if self.history != None:
             if today not in self.history:
                 self.history.append(today)

@@ -5,15 +5,16 @@
         "periodicity": false,
         "details": "Going every weekend to do some rock climbing with friends",
         "check": true,
-        "streak": 6,
-        "last_check": "2026-01-05",
+        "streak": 7,
+        "last_check": "2026-01-15",
         "history": [
             "2025-12-03",
             "2025-12-10",
             "2025-12-17",
             "2025-12-23",
             "2026-01-02",
-            "2026-01-05"
+            "2026-01-05",
+            "2026-01-15"
         ]
     },
     {
@@ -68,6 +69,21 @@
             "2025-12-11",
             "2025-12-18",
             "2025-12-25",
+            "2026-01-02",
+            "2026-01-05"
+        ]
+    },
+    {
+        "name": "Changing Bedsheets",
+        "timespan": 8,
+        "periodicity": false,
+        "details": "Change and wash my bedsheets",
+        "check": true,
+        "streak": 3,
+        "last_check": "2026-01-05",
+        "history": [
+            "2025-12-25",
+            "2026-01-01",
             "2026-01-02",
             "2026-01-05"
         ]

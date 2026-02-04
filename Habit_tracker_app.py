@@ -2,15 +2,32 @@ import json
 from datetime import date
 from Habit_Class import Habit
     
-def load_json():
-    with open("Habit_Database.json", "r") as archivo:
+def load_json(filename = "Habit_Database.json"):
+    with open(filename, "r") as archivo:
         data = json.load(archivo)
         return [Habit.from_dict(d) for d in data]
 
 
-def save_json(habits):
-    with open("Habit_Database.json", "w") as archivo:
+def save_json(habits, filename = "Habit_Database.json"):
+    with open(filename, "w") as archivo:
         json.dump([t.to_dict() for t in habits], archivo, indent=4, ensure_ascii=False)
+
+def find_habit(user_input, database):
+    for index, habit in enumerate(database, 1):
+        if user_input == habit.name or user_input == str(index):
+            return habit
+        pass
+
+def add_habit(habit_list, new_habit):
+
+    for h in habit_list:
+        if new_habit.name == h.name:
+            return False
+    
+    habit_list.append(new_habit)
+    return True
+
+
 
 
 def create_habit():
@@ -55,8 +72,8 @@ def create_habit():
 
     new_habit = Habit(new_name, timespan, period, str(new_details), False, 0, None, [])
 
-    habits_list.append(new_habit)
-    save_json(habits_list)
+    if add_habit(habits_list, new_habit):
+        save_json(habits_list)
 
     print("Your New habit has been added to the database \n")
 
@@ -105,8 +122,10 @@ def delete_habit():
 
 
 def check_a_habit():
+
     print("Your current habits are: \n")
     opened_database = load_json()
+
     list_of_inputs = []
     contador = 1
 
