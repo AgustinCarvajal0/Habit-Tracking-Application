@@ -3,7 +3,22 @@ from datetime import datetime, timedelta, date
 
 class Habit:
 
-    def __init__(self, name = str , ts = int, period = bool, details = str, checked = bool, streak = 0, last_check = None, history = None):
+    def __init__(self, name = str , ts = int, period = bool, details = str,
+                  checked = bool, streak = 0, last_check = None, history = None):
+        """
+        Initializes a new Habit instance.
+
+        Args:
+            name (str): Name of the habit.
+            timespan (int): Amount of days that the user wishes to complete the habit for.
+            period (bool): Habit periodicity. True for daily habits, False for weekly habits.
+            details (str): Additional information or notes about the habit.
+            checked (bool): Indicates whether the habit has been checked for the current period.
+            streak (int, optional): Current streak count. Defaults to 0.
+            last_check (date or None, optional): Date of the last completion.
+            history (list or None, optional): List of past completion dates.
+        """
+
         self.name = name
         self.timespan = ts 
         self.periodicity = period #if True, periodicity = daily. if False, periodicity = weekly
@@ -14,27 +29,8 @@ class Habit:
         self.history = history
 
     def __str__(self) -> str:
-        return f"{self.name}; {self.timespan}; {self.periodicity}; {self.details}; {self.checked}; {self.streak}; {self.last_check}; {self.history}"
-
-
-    def change_timespan(self, new_timespan):
-        self.timespan = new_timespan
-        
-    def change_periodicity(self):
-        if self.periodicity == False:
-            self.periodicity = True
-            pass
-        if self.periodicity == True:
-            self.periodicity = False
-            pass
-    
-    def change_details(self, new_details):
-        self.details = new_details
-        print("The new details have been set!")
-
-    def change_streak(self, new_streak):
-        self.streak = new_streak
-        print("Your new streak has been updated!")
+        return f"{self.name}; {self.timespan}; {self.periodicity}; {self.details};
+          {self.checked}; {self.streak}; {self.last_check}; {self.history}"
 
     def check_habit(self):
         today = date.today().isoformat()
@@ -73,6 +69,22 @@ class Habit:
  
     def update_streak(self):
 
+
+        """
+        Updates the habit streak based on completion history and periodicity.
+
+        For daily habits, the streak is calculated by counting back the consecutive days
+        up to the current date present in the habit history. If the previous day
+        is missing, the streak counter stops and updates the streak.
+
+        For weekly habits, the streak is updated based on whether the habit was
+        completed in consecutive calendar weeks, including correct handling of
+        year transitions.
+
+        The method updates the streak value and records the current date as the
+        last check. This method does not return a value.
+        """
+
         if not self.history:
             self.streak = 1
             return
@@ -84,8 +96,8 @@ class Habit:
             year, month, day = d.split("-")
             dates.append(date(int(year), int(month), int(day)))
 
-        """daily streaks, periodicity == True"""
-        if self.periodicity == True:
+
+        if self.periodicity == True: #daily
             helper = today_t
             yesterday = helper - timedelta(days = 1)
             self.streak = 0
@@ -124,6 +136,19 @@ class Habit:
 
 
     def habit_analysis(self):
+
+        """
+        Displays a detailed status report of the habit's progress.
+
+        The method prints information about the habit, including its periodicity
+        (daily or weekly), last checked date, current streak length, and
+        progress toward the defined target timespan. If the goal has been reached, 
+        exceeded or not yet completed, a corresponding message is displayed. Additional habit
+        details provided by the user are also shown.
+
+        This method outputs information to the console and does not return a value.
+        """
+
         print("Here is the current status of your habit in detail \n")       
         if self.periodicity == True:
             print("This is a daily Habit\n")           

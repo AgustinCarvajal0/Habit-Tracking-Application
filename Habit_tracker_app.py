@@ -7,7 +7,6 @@ def load_json(filename = "Habit_Database.json"):
         data = json.load(archivo)
         return [Habit.from_dict(d) for d in data]
 
-
 def save_json(habits, filename = "Habit_Database.json"):
     with open(filename, "w") as archivo:
         json.dump([t.to_dict() for t in habits], archivo, indent=4, ensure_ascii=False)
@@ -27,10 +26,21 @@ def add_habit(habit_list, new_habit):
     habit_list.append(new_habit)
     return True
 
-
-
-
 def create_habit():
+
+    """
+    Creates a new habit by collecting user inputs and storing it in the habits database.
+
+    The function loads the existing habits from a JSON file, asking the user
+    to enter a unique habit name, select a periodicity (either daily or weekly),
+    define a target duration, and add optional details. A new Habit object
+    is then created and saved to the JSON storage.
+
+    This function performs input/output operations and does not return a value.
+
+    Raises:
+        FileNotFoundError: If the habits storage file does not exist and cannot be created.
+    """
 
     try:
         habits_list = load_json()
@@ -81,6 +91,18 @@ def create_habit():
 
 def delete_habit():
 
+    """
+    Deletes an existing habit from the habits database based on user input.
+
+    The function loads the current list of habits from the JSON File,
+    shows them to the user, and prompts for a habit to be deleted by name
+    or by a displayed index number. If a valid selection is made, the
+    chosen habit is removed and the updated list is saved. Otherwise, the
+    user is returned to the menu.
+
+    This function performs input/output operations and does not return a value.
+    """
+
     print("Your current habits are: \n")
     opened_database = load_json()
     contador = 1
@@ -123,6 +145,19 @@ def delete_habit():
 
 def check_a_habit():
 
+    """
+    Marks a habit as completed and updates its streak based on user input.
+
+    The function loads the current habits from the JSON file, displays
+    them to the user, and asks for a habit to be  selected by name or index number.
+    Once a valid habit is selected, its streak is updated and the habit is
+    marked as checked for the current period. The updated data is then saved.
+    In case a streak is broken, a message is printed notifying the user of it, and the
+    streak is reset to 1.
+
+    This function performs input/output operations and does not return a value.
+    """
+
     print("Your current habits are: \n")
     opened_database = load_json()
 
@@ -159,6 +194,17 @@ def check_a_habit():
 
 
 def request_overall_analysis():
+    """
+    Displays an overall analysis of habits grouped by periodicity.
+
+    The function loads all stored habits, analyzes their streaks, and
+    sorts them in descending order based on streak length. Habits are
+    then separated into daily and weekly categories and printed as ranked
+    lists showing the longest current streaks for each periodicity.
+
+    This function performs read and display operations and does not return
+    a value.
+    """
 
     habits_list = load_json()
     current_habits = list()
@@ -202,6 +248,17 @@ def request_overall_analysis():
 
 def specific_habit_analysis():
 
+    """
+    Displays a detailed analysis of a selected habit based on user input.
+
+    The function loads the current habits from the JSON file, displays
+    them to the user, and prompts for a habit selection by name or index number.
+    Once a valid habit is selected, a detailed analysis of that habit is
+    displayed by calling its analysis method.
+
+    This function performs input/output operations and does not return a value.
+    """
+
     print("Your current habits are: \n")
     opened_database = load_json()
     list_of_inputs = []
@@ -230,7 +287,6 @@ def specific_habit_analysis():
         if habit.name == analyzed:
             habit.habit_analysis()
 
-    pass
 
 
 
